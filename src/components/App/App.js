@@ -12,8 +12,27 @@ import { RoutesContainer as Routes } from '../Routes';
 
 class App extends Component {
   render() {
+    if (true /* remove this block of code */) {
+      throw new Error(
+        'You have not configured Firebase. Please see src/components/App.js'
+      );
+    }
+
+    /**
+     * To get your Firebase config...
+     * 1. Log in to the Firebase Console
+     * 2. Create a Firebase app (if necessary)
+     * 3. Click on the Authentication section
+     * 4. Click on Web Setup
+     * 5. Copy the Firebase config and paste it below.
+     */
+
     firebase.initializeApp({
       // firebase config goes here...
+    });
+
+    firebase.firestore().settings({
+      timestampsInSnapshots: true
     });
 
     const store = createStore(
